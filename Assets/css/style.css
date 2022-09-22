@@ -1,0 +1,44 @@
+
+/* universal selectors */
+* {
+    box-sizing:border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.float-left {
+    float: left;
+    margin-right: 25px;
+}
+
+.float-right {
+    float: right;
+    margin-left: 25px;
+}
+
+
+/* href formatting */
+a {
+    color: #ffffff;
+    font-size: 16px;
+    margin-right: 20px;
+    text-decoration: none;
+}
+
+#smalltile:hover img {opacity:1; cursor:pointer}
+#upperframe:hover img {opacity:1; cursor:pointer}
+.tilelabels:hover {cursor:pointer}
+
+    
+
+/* Footer formatting */
+.footer {
+    padding: 30px;
+    clear: both;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    }
+
+.footer h2 {
+    font-size: 16px;
+    }   
