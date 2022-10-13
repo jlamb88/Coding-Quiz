@@ -24,10 +24,12 @@ function generateTimer(seconds)  {
         
         setInterval(function () {
           var timerSecs = timerEl.textContent;
-          if (timerSecs>0) {
+          if (timerSecs>0) 
+          {
           timerSecs--;
-          timerEl.textContent = timerSecs}
-          else {clearInterval()}
+          timerEl.textContent = timerSecs
+          }
+          else {alert ("GAME OVER. The timer reached zero before you could answer all the questions")}
           }
       , 1000);
     }
@@ -40,20 +42,26 @@ generateQuestion(currentQ);
 
 
 function generateQuestion(currentQ) {
-    if (currentQ <= questions.length) {
-    questionEl.textContent = questions[currentQ].question;
+  console.log(currentQ);
+    if (currentQ < questions.length) {
+    questionEl.textContent = ""
+    var clrChoices  = document.querySelectorAll('.choice');
+    clrChoices.forEach(clrChoices => {
+      clrChoices.remove();
+      });
+        questionEl.textContent = questions[currentQ].question;
     for(c=0;c<questions[currentQ].choices.length; c++) 
       {
-    var choiceNode = document.createElement('button');
-    var choiceCorrect = questions[currentQ].choices[c].correct;
-    choiceNode.setAttribute('onclick', 'checkAnswer(event.target.dataset.correct)');
-    choiceNode.setAttribute('id','choiceBtn'+(c+1));
-    choiceNode.setAttribute('class', 'choice');
-    choiceNode.setAttribute('data-correct', choiceCorrect);
-    choiceNode.textContent = c+1 + '. ' + questions[currentQ].choices[c].text;
-    choicesEl.appendChild(choiceNode);
+        var choiceNode = document.createElement('button');
+        var choiceCorrect = questions[currentQ].choices[c].correct;
+        choiceNode.setAttribute('onclick', 'checkAnswer(event.target.dataset.correct)');
+        choiceNode.setAttribute('id','choiceBtn'+(c+1));
+        choiceNode.setAttribute('class', 'choice');
+        choiceNode.setAttribute('data-correct', choiceCorrect);
+        choiceNode.textContent = c+1 + '. ' + questions[currentQ].choices[c].text;
+        choicesEl.appendChild(choiceNode);
        }
-    currentQ++;
+    
       }
     else
       makeScore();
@@ -67,6 +75,7 @@ function generateQuestion(currentQ) {
    if (checkButton==="true")
     {
     alert("Correct!");
+    currentQ += 1;
     generateQuestion(currentQ);
     }
   else {
@@ -77,7 +86,7 @@ function generateQuestion(currentQ) {
 
 function makeScore()
 {
-currentScore = localStorage.getItem ("score");
+currentScore = timerEl.textContent;
 topScore = localStorage.getItem("topScore")
 if (currentScore > topScore) {
 localStorage.setItem ("topScore", currentScore);
