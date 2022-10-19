@@ -6,14 +6,22 @@
     margin: 0;
 }
 
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+}
+
 .float-left {
     float: left;
-    margin-right: 25px;
+    margin-right: 2.5em;
 }
 
 .float-right {
     float: right;
-    margin-left: 25px;
+    margin-left: 2.5em;
 }
 
 /* href formatting */
@@ -24,15 +32,69 @@ a {
     text-decoration: none;
 }
 
-#smalltile:hover img {opacity:1; cursor:pointer}
-#upperframe:hover img {opacity:1; cursor:pointer}
-.tilelabels:hover {cursor:pointer}
+p {
+    font-size: 1.2rem;
+}
 
+.splash {
+    display: block;
+    justify-content: center;
+    position: absolute;
+    top: 6em;
+    left: 12em;
+    width: 30rem;
+    
+    }
 
+.quiz {
+    display: block;
+    flex:content;
+    position: absolute;
+    top: 6em;
+    left: 12em;
+    width: 40rem;
+    }
 
+.timer-box {
+    display: inline-block;
+    justify-content:space-between;
+    font-size: 1.2rem;
+    font-style: italic;
+    color: darkslategray;
+}
+
+.questions {
+    flex: auto;
+    font-size: 1.8rem;
+    font-weight: 600;
+    padding: 1.5em;
+    }
+
+.choices {
+    display:flex;
+    flex-flow: column;
+}
+
+button {
+    width: 12em;
+    border-color: lightblue;
+    border-width: 2px;
+    background-color: darkslateblue;
+    color: lightblue;
+    border-radius: 5px;
+}
+
+.response {
+    border-top: 2px;
+    margin: .5em;
+    padding: .5em;
+    border-color: darkslateblue;
+    color: darkslateblue;
+    font-style: italic;
+}
 /* Footer formatting */
 .footer {
-    padding: 30px;
+    padding: 3em;
     clear: both;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center;

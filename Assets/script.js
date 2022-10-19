@@ -1,4 +1,3 @@
-var usedQuestions = [];
 var questions=[
   {questionNo:1,
   question:'Objects are defined in Javascript using what characters?',
@@ -29,27 +28,29 @@ function generateTimer(seconds)  {
           timerSecs--;
           timerEl.textContent = timerSecs
           }
-          else {alert ("GAME OVER. The timer reached zero before you could answer all the questions")}
-          }
+          else {timeEl.textContent = "0"
+          };
+        }
       , 1000);
     }
     
 
 
-startButton = document.createElement('prompt');
+
 generateTimer(60);
 generateQuestion(currentQ);
 
-
-function generateQuestion(currentQ) {
+function generateQuestion(currentQ) 
+{
   console.log(currentQ);
-    if (currentQ < questions.length) {
+  if (currentQ < questions.length) 
+  {
     questionEl.textContent = ""
     var clrChoices  = document.querySelectorAll('.choice');
     clrChoices.forEach(clrChoices => {
       clrChoices.remove();
       });
-        questionEl.textContent = questions[currentQ].question;
+    questionEl.textContent = questions[currentQ].question;
     for(c=0;c<questions[currentQ].choices.length; c++) 
       {
         var choiceNode = document.createElement('button');
@@ -58,30 +59,32 @@ function generateQuestion(currentQ) {
         choiceNode.setAttribute('id','choiceBtn'+(c+1));
         choiceNode.setAttribute('class', 'choice');
         choiceNode.setAttribute('data-correct', choiceCorrect);
-        choiceNode.textContent = c+1 + '. ' + questions[currentQ].choices[c].text;
+        choiceNode.textContent = questions[currentQ].choices[c].text;
         choicesEl.appendChild(choiceNode);
        }
     
-      }
-    else
-      makeScore();
-       
     }
+  else
+    {
+    makeScore();
+    }
+  }
 
-
- function checkAnswer(checkButton) {
+ function checkAnswer(checkButton)
+  {
   console.log(checkButton);
   timerEl = document.getElementById("timer");
    if (checkButton==="true")
     {
-    alert("Correct!");
+    document.getElementById("response").textContent = "Correct!"
     currentQ += 1;
     generateQuestion(currentQ);
     }
-  else {
-    alert("Incorrect Answer. 5 seconds have been deducted from your time.");
+  else 
+    {
+    document.getElementById("response").textContent = "Wrong. 5 seconds have been deducted from your time."
     timerEl.textContent -=5;
-      }  
+    }
   }
 
 function makeScore()

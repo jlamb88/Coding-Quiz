@@ -9,16 +9,19 @@
 </head>
 
 <body>
-    <header class="header">
-   
-    </header>    
-    
-    <div class="splash"></div>
-    
-    <section id="timer"><h1></h1></section>
+    <splash class="splash"><h2>Coding Quiz Challenge</h2>
+        <p>Try to answer the following five questions in less than 60 seconds. An incorrect answer will subtract 5 secs from your time. If you answer all five questions correctly your remaining time will be saved as your score.</p>
+    </splash>
 
-    <section id="questionText"><p></p></section> 
-    <section id ="choices"></section>
+    <section class="timer-box"><ul>View High Scores</ul><ul>Time Remaining: 
+        <span class="timer" id="timer">60</span></section>
+    
+    <quiz>
+        <section class="questions" id="questionText">Question</section> 
+        <section class="choices" id ="choices"></section>
+    </quiz>
+
+    <section class="response" id="response">no answer yet</section>
 
 
     <footer class="footer">
@@ -29,4 +32,6 @@
     </footer>
 </body>
 <script src="./assets/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 </html>
