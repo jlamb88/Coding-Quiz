@@ -9,14 +9,16 @@
 </head>
 
 <body>
-    <splash class="splash"><h2>Coding Quiz Challenge</h2>
+    <splash class="splash"><h1>Coding Quiz Challenge</h1>
         <p>Try to answer the following five questions in less than 60 seconds. An incorrect answer will subtract 5 secs from your time. If you answer all five questions correctly your remaining time will be saved as your score.</p>
     </splash>
 
-    <section class="timer-box"><ul>View High Scores</ul><ul>Time Remaining: 
-        <span class="timer" id="timer">60</span></section>
+    <section class="timer-box">
+        <section>View High Scores</section> 
+        <section>Time Remaining: <span class="timer" id="timer">60</span></section>
+    </section>
     
-    <quiz>
+    <quiz class="quiz">
         <section class="questions" id="questionText">Question</section> 
         <section class="choices" id ="choices"></section>
     </quiz>
