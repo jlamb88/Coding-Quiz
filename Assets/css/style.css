@@ -78,7 +78,20 @@ h1 {
     display: none;
 }
 
-#alertBtn {
+button {
+    border-color: lightblue;
+    border-width: 2px;
+    background-color: darkslateblue;
+    color: rgb(152, 185, 196);
+    border-radius: 5px;
+
+}
+
+button:hover {
+    opacity: 0.6
+}
+
+.start-btn {
     width: 8em;
     height: 3em;
     text-align: center;
@@ -92,11 +105,28 @@ h1 {
     visibility: hidden;
 }
 
+#scores-btn {
+    background: none;
+    border: none
+}
+
+.enter-btn {
+    width: 12rem;
+    text-align: center;
+    margin-right: 0.4em;
+}
+
+.choice-btn {
+    width: 20rem;
+    padding-left: 2em;
+    text-align: left;
+    border-radius: 5px;
+    margin-bottom: 0.5em;
+}
+
 .quiz {
     position: absolute;
-    /* top: 12em; */
     left: 18em;
-    width: 50rem;
     height: 100%;
     width: 80%;
     border-bottom: 1px solid;
@@ -116,22 +146,10 @@ h1 {
     padding: 1.2em;
 }
 
-button {
-    width: 20rem;
-    padding-left: 2em;
-    text-align: left;
-    border-color: lightblue;
-    border-width: 2px;
-    background-color: darkslateblue;
-    color: lightblue;
-    border-radius: 5px;
-}
-
 .response {
-    display: block;
+    display: none;
     position: relative;
     top: 1em;
-    /* left: 18em; */
     border-top: 1px solid;
     width: 30em;
     margin: .5em;
@@ -142,10 +160,10 @@ button {
 
 .highscore {
     list-style-type: decimal;
-    width: 25rem;
+    width: 35rem;
     background-color: rgba(144, 72, 212, 0.75);
-    padding: 0.5em;
-    margin: 0.5em 1em
+    padding: 0.3em;
+    margin: 0.3em 1em
 }
 
 /* Footer formatting */

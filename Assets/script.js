@@ -3,7 +3,7 @@ var questions = [
   {
     questionNo: 1,
     question: 'Objects are defined in Javascript using what characters?',
-    choices: [{ text: "[]", correct: false }, { text: "()", correct: false }, { text: "{}", correct: true }, { text: "<>", correct: false }]
+    choices: [{ text: "[ ]", correct: false }, { text: "( )", correct: false }, { text: "{ }", correct: true }, { text: "< >", correct: false }]
   },
   {
     questionNo: 2,
@@ -19,6 +19,11 @@ var questions = [
     questionNo: 4,
     question: "Everything is a(n) ____________ in javascript. ",
     choices: [{ text: "file", correct: false }, { text: "object", correct: true }, { text: "array", correct: false }, { text: "challenge", correct: false }]
+  },
+  {
+    questionNo: 5,
+    question: "What syntax is used to define a variable in Javascript?",
+    choices: [{ text: "make", correct: false }, { text: "var", correct: true }, { text: "constant", correct: false }, { text: "abs", correct: false }]
   }
 ]
 
@@ -32,6 +37,12 @@ var response = document.getElementById("response");
 var resultsPg = document.getElementById("results-page");
 var scoresPg = document.getElementById("scores-page");
 var highScores = document.getElementById("high-scores")
+var scoresBtn = document.getElementById('scores-btn')
+var startBtn = document.getElementById('start-btn')
+var enterScoresBtn = document.getElementById('enter-scores')
+var enterBtn = document.getElementById('enter-btn')
+var clearBtn = document.getElementById("clear-btn")
+var scoreVal = document.querySelector('#score')
 var currentQ = 0
 
 function generateTimer(seconds) {
@@ -45,6 +56,7 @@ function generateTimer(seconds) {
       clearInterval(timerInt)
       timerInt = null
       makeResults()
+      return
     };
   }
     , 1000);
@@ -63,17 +75,13 @@ function generateQuestion(currentQ) {
   if (currentQ < questions.length) {
     questionEl.textContent = ""
     clearAll(choicesEl)
-    // var clrChoices = document.querySelectorAll('.choice');
-    // clrChoices.forEach(clrChoices => {
-    //   clrChoices.remove();
-    // });
     questionEl.textContent = questions[currentQ].question;
     for (c = 0; c < questions[currentQ].choices.length; c++) {
       var choiceNode = document.createElement('button');
       var choiceCorrect = questions[currentQ].choices[c].correct;
       choiceNode.setAttribute('onclick', 'checkAnswer(event.target.dataset.correct)');
-      choiceNode.setAttribute('id', 'choiceBtn' + (c + 1));
-      choiceNode.setAttribute('class', 'choice');
+      // choiceNode.setAttribute('id', 'choiceBtn' + (c + 1));
+      choiceNode.setAttribute('class', 'choice-btn');
       choiceNode.setAttribute('data-correct', choiceCorrect);
       choiceNode.textContent = questions[currentQ].choices[c].text;
       choicesEl.appendChild(choiceNode);
@@ -81,13 +89,14 @@ function generateQuestion(currentQ) {
 
   }
   else {
+    clearInterval(timerInt)
     makeResults();
+    return
   }
 }
 
 function checkAnswer(checkButton) {
   response.style.display = "block";
-  timerEl = document.getElementById("timer");
   response.style.opacity = "1"
   if (checkButton === "true") {
     response.textContent = "Correct!"
@@ -97,9 +106,8 @@ function checkAnswer(checkButton) {
   else {
     response.textContent = "Wrong. 5 seconds have been deducted from your time."
     timerEl.textContent -= 5;
-
   }
-  $('#response').fadeOut(1500)
+  $('#response').fadeOut(1000)
 }
 
 function makeResults() {
@@ -108,17 +116,21 @@ function makeResults() {
   response.style.display = "none";
   quizBlock.style.display = "none";
   resultsPg.style.display = "block";
-  document.querySelector("#score").textContent = currentScore
+  scoreVal.textContent = currentScore
 }
 
 loadHighScores = () => {
-  userInits = document.getElementById("initials").value
+  currentScore = scoreVal.textContent
+  initsVal = document.getElementById("initials")
+  userInits = initsVal.value
   lastScore = localStorage.getItem(userInits)
   if (currentScore > lastScore) {
     localStorage.setItem(userInits, currentScore);
   }
+  quizBlock.style.display = "none";
   resultsPg.style.display = "none";
   scoresPg.style.display = "block";
+  timerRow.style.visibility = "hidden";
   clearAll(highScores)
   for (i = 0; i < localStorage.length; i++) {
     score = localStorage.key(i) + " - " + localStorage.getItem(localStorage.key(i))
@@ -128,8 +140,23 @@ loadHighScores = () => {
     highScores.appendChild(userHighScore)
   }
   currentQ = 0
+  scoreVal.textContent = ""
+  initsVal.value = ""
+  clearInterval(timerInt)
+}
+
+clearScores = () => {
+  localStorage.clear()
+  clearAll(highScores)
 }
 
 clearAll = (element) => {
   element.replaceChildren()
 }
+
+scoresBtn.addEventListener('click', loadHighScores)
+startBtn.addEventListener('click', startQuiz)
+enterBtn.addEventListener('click', startQuiz)
+enterScoresBtn.addEventListener('click', loadHighScores)
+clearBtn.addEventListener('click', clearScores)
+
