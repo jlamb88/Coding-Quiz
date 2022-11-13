@@ -1,13 +1,13 @@
-#Joseph Lamb
+# 4 - Coding Quiz
 
-## Coding Quiz
-
-##User Story
+## Description
+This application runs a multiple choice quiz to test the user's knowledge of Javascript. It keeps there high score scores for the current session.
+### User Story
 AS A coding boot camp student</br>
 I WANT to take a timed quiz on JavaScript fundamentals that stores high scores</br>
 SO THAT I can gauge my progress compared to my peers</br>
 
-##Acceptance Criteria
+### Acceptance Criteria
 GIVEN I am taking a code quiz</br>
 WHEN I click the start button</br>
 THEN a timer starts and I am presented with a question</br>
@@ -20,40 +20,43 @@ THEN the game is over</br>
 WHEN the game is over</br>
 THEN I can save my initials and my score</br>
 
-##Development
-#Parameters
-1) There will be 5 questions in the quiz, chosen randomly with question choices listed in random order each time</br>
+### Parameters
+1) There will be 6 questions in the quiz, chosen randomly with question choices listed in random order each time</br>
 2) The quiz will have a timer of 60 secs</br>
-3) 10 seconds will be deducted from the timer for each incorrect answer</br>
+3) 5 seconds will be deducted from the timer for each incorrect answer</br>
 4) Scores will be saved locally with the users intials</br>
 
-#Pseudocode
+### Pseudocode
 1) Make an array of questions as objects.
 2) Make an array of question choices with correct as a boolean to flag the right answer choice
 3) Start a 60 second timer when the quiz is started
-4) Pick a question from the question array by generating a random number from 0 to question array size
-5) Load the appropriate question choices from the choices array in a random order from 1 to 4
-6) Display correct if right choice is selected and increase score by 1
-7) Display incorrect if incorrect choice is selected and decrease timer by 10 seconds.
-8) Write question array position to a "chosen" array to prevent repetition of questions
-9) Select next question by generating a random number from 0 to question array size that is not in the chosen array
+4) Pick a question from the question array
+5) Load the appropriate question choices from the choices array
+6) Display correct if right choice is selected
+7) Display incorrect if incorrect choice is selected and decrease timer by 5 seconds.
+9) Select next question and clear current question and choices
 10) At end of quiz, all questions answered or timer expires, prompt for users initials
-11) Write score and user initials to local storage
-12) Display high score from user's quizzes
+11) Write score based on remaining time and user initials to local storage
+12) Display high scores from users' quizzes
+13) Provide buttons to clear high scores or restart the quiz
 
-## To-Do
 
 ## Installation
 
-The code will reside on a Github repository at the location of: https://github.com/jlamb88/4-Coding-Quiz.git
+The code will reside on a Github repository at the location of: 
+https://github.com/jlamb88/4-Coding-Quiz.git
+
+URL: https://jlamb88.github.io/4-Coding-Quiz/
 
 ## Usage
 
-Provide instructions and examples for use. Include screenshots as needed.
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
+![alt text](assets/images/screenshot.png) 
 
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
+## Credits
+Developer: Joseph Lamb
+
+## Badges
+
+![badmath](https://img.shields.io/github/languages/top/lernantino/badmath)
 
