@@ -132,11 +132,17 @@ loadHighScores = () => {
   scoresPg.style.display = "block";
   timerRow.style.visibility = "hidden";
   clearAll(highScores)
-  for (i = 0; i < localStorage.length; i++) {
-    score = localStorage.key(i) + " - " + localStorage.getItem(localStorage.key(i))
+
+  let scrHist = localStorage.getItem("initials") || "[]"
+  scrHist = JSON.parse(scrHist)
+
+  // for (i = 0; i < localStorage.length; i++) {
+  for (const scoreHist of scrHist) {
+    // score = localStorage.key(i) + " - " + localStorage.getItem(localStorage.key(i))
+    score = localStorage.getItem()
     userHighScore = document.createElement('li')
     userHighScore.className = 'highscore'
-    userHighScore.textContent = score
+    userHighScore.textContent = `${scoreHist}`
     highScores.appendChild(userHighScore)
   }
   currentQ = 0

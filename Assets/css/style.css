@@ -84,7 +84,6 @@ button {
     background-color: darkslateblue;
     color: rgb(152, 185, 196);
     border-radius: 5px;
-
 }
 
 button:hover {
@@ -92,11 +91,12 @@ button:hover {
 }
 
 .start-btn {
-    width: 8em;
-    height: 3em;
+    width: 10em;
+    height: 4em;
     text-align: center;
     padding: 0.4em;
     margin-top: 0.5em;
+    height: 3em;
 }
 
 .scores {
@@ -122,6 +122,11 @@ button:hover {
     text-align: left;
     border-radius: 5px;
     margin-bottom: 0.5em;
+    height: 4em;
+}
+
+.choice-btn text {
+    margin-left: 20em;
 }
 
 .quiz {
@@ -144,6 +149,7 @@ button:hover {
     display: flex;
     flex-flow: column;
     padding: 1.2em;
+    margin-left: 16px;
 }
 
 .response {
