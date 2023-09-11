@@ -51,7 +51,7 @@ URL: https://jlamb88.github.io/4-Coding-Quiz/
 ## Usage
 
 
-![alt text](assets/images/screenshot.png) 
+![alt text](Assets/images/screenshot.png) 
 
 ## Credits
 Developer: Joseph Lamb
